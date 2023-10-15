@@ -13,39 +13,35 @@ def rotate_array():
     try:
         n = int(input("Enter the number of elements (n): "))
         k = int(input("Enter the number of steps (k): "))
-        A = int (input("Enter the array elemants separted by space(A): "))
         
         if n <= 0 or k < 0:
             print("Please enter valid values for n and k.")
         else:
             arr = []
-            for i in range(n):
-                element = int(input(f"Enter element {i + 1}: "))
-                arr.append(element)
+            arr_input = input("Enter the array elements separated by space: ")
+            arr = [int(x) for x in arr_input.split()]
             
-            k = k % n  # Ensure k is within the range of array size
+            k = k % n  
             rotated_arr = arr[-k:] + arr[:-k]
-            
-            print("Original array:", arr)
             print("Rotated array:", rotated_arr)
     except ValueError:
         print("Invalid input. Please enter valid numbers.")
 
 def display_help():
-    print("Welcome to the Menu-Based program!:")
-    print("1. Print Pattern - Enter a positive number to print a pattern of stars.")
-    print("2. Rotate Array - Enter the number of elements, the number of steps, and an array to rotate.")
-    print("3. Help - Display this menu.")
-    print("4. Exit - Quit the program.")
+    print("1. Print Pattern with 'n' rows of decreasing asterisks.")
+    print("2. Rotate an Array of 'n' to the right by 'k' steps.")
+    print("3. Display this help message.")
+    print("4. Exit the program.")
+
+print("Welcome to the Menu-Based program!")
 
 while True:
-    print("Welcome to the Menu-Based program!:")
     print("1. Print Pattern")
     print("2. Rotate Array")
     print("3. Help")
     print("4. Exit")
 
-    choice = input("please select an options (1/2/3/4): ")
+    choice = input("Please select an option (1/2/3/4): ")
 
     if choice == '1':
         print_pattern()
